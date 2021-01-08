@@ -1,11 +1,10 @@
 {
   "name": "alirezax5/telegramapiphp",
-  "description": "Work with mime types",
   "keywords": [
-    "MimeType",
-    "Mime Type"
+    "telegram",
+    "bot"
   ],
-  "homepage": "https://github.com/alirezax5/MimeType",
+  "homepage": "https://github.com/roonx/telegramBotPhp",
   "license": "MIT",
   "authors": [
     {
