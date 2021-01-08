@@ -1,0 +1,27 @@
+{
+  "name": "alirezax5/telegramapiphp",
+  "keywords": [
+    "telegram",
+    "bot"
+  ],
+  "homepage": "https://github.com/roonx/telegramBotPhp",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alirezax5",
+      "homepage": "http://alirezax5.ir",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "telegramBotApiPhp\\": "src/",
+      "telegramBotApiPhp\\Types\\": "src/Types",
+      "telegramBotApiPhp\\Traits\\": "src/Traits"
+    }
+  }
+}
