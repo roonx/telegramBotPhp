@@ -1,0 +1,28 @@
+{
+  "name": "alirezax5/telegramapiphp",
+  "description": "Work with mime types",
+  "keywords": [
+    "MimeType",
+    "Mime Type"
+  ],
+  "homepage": "https://github.com/alirezax5/MimeType",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alirezax5",
+      "homepage": "http://alirezax5.ir",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "telegramBotApiPhp\\": "src/",
+      "telegramBotApiPhp\\Types\\": "src/Types",
+      "telegramBotApiPhp\\Traits\\": "src/Traits"
+    }
+  }
+}
