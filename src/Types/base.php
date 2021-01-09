@@ -39,8 +39,7 @@ abstract class base
             $type = 'isset';
         }
         $method = str_replace($type, '', $name);
-        file_put_contents('44.json', json_encode($method));
-        file_put_contents('55.json', json_encode($type));
+    
 
         if (property_exists($this, $method)) {
             if ($type == 'get' and $this->$method) {
