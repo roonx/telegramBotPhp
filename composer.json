@@ -1,8 +1,12 @@
 {
-  "name": "roonx/telegramapiphp",
+  "name": "roonx/telegramBotApiPhp",
   "keywords": [
     "telegram",
-    "bot"
+    "bot",
+    "telegram bot",
+    "تلگرام",
+    "ربات تلگرام",
+    "ساخت ربات تلگرام"
   ],
   "homepage": "https://github.com/roonx/telegramBotPhp",
   "license": "MIT",
@@ -15,7 +19,8 @@
   ],
   "require": {
     "php": ">=7.0",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-curl": "*"
   },
   "autoload": {
     "psr-4": {
