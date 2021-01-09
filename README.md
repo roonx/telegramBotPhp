@@ -1,4 +1,5 @@
 # telegramBotPhp
 install :
 
-composer require roonx/telegramapiphp
+composer require roonx/telegram-bot-api-php
+
