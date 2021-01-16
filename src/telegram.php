@@ -166,8 +166,10 @@ class telegram
     {
         $cache = $this->cacheTypes['Message'];
         if ($cache == null) {
-            $cache = Message::create($this->data['message']);
-            $this->cacheTypes['Message'] = $cache;
+            if ($this->checkExistUpdate('message')) {
+                $cache = Message::create($this->data['message']);
+                $this->cacheTypes['Message'] = $cache;
+            }
 
         }
         return $cache;
@@ -181,8 +183,10 @@ class telegram
 
         $cache = $this->cacheTypes['edited_message'];
         if ($cache == null) {
-            $cache = Message::create($this->data['edited_message']);
-            $this->cacheTypes['edited_message'] = $cache;
+            if ($this->checkExistUpdate('edited_message')) {
+                $cache = Message::create($this->data['edited_message']);
+                $this->cacheTypes['edited_message'] = $cache;
+            }
         }
         return $cache;
     }
@@ -194,8 +198,10 @@ class telegram
     {
         $cache = $this->cacheTypes['channel_post'];
         if ($cache == null) {
-            $cache = Message::create($this->data['channel_post']);
-            $this->cacheTypes['channel_post'] = $cache;
+            if ($this->checkExistUpdate('channel_post')) {
+                $cache = Message::create($this->data['channel_post']);
+                $this->cacheTypes['channel_post'] = $cache;
+            }
         }
         return $cache;
     }
@@ -207,8 +213,10 @@ class telegram
     {
         $cache = $this->cacheTypes['edited_channel_post'];
         if ($cache == null) {
-            $cache = Message::create($this->data['edited_channel_post']);
-            $this->cacheTypes['edited_channel_post'] = $cache;
+            if ($this->checkExistUpdate('edited_channel_post')) {
+                $cache = Message::create($this->data['edited_channel_post']);
+                $this->cacheTypes['edited_channel_post'] = $cache;
+            }
         }
         return $cache;
     }
@@ -220,8 +228,11 @@ class telegram
     {
         $cache = $this->cacheTypes['inline_query'];
         if ($cache == null) {
-            $cache = InlineQuery::create($this->data['inline_query']);
-            $this->cacheTypes['inline_query'] = $cache;
+            if ($this->checkExistUpdate('inline_query')) {
+                $cache = InlineQuery::create($this->data['inline_query']);
+                $this->cacheTypes['inline_query'] = $cache;
+            }
+
         }
         return $cache;
     }
@@ -233,8 +244,10 @@ class telegram
     {
         $cache = $this->cacheTypes['chosen_inline_result'];
         if ($cache == null) {
-            $cache = ChosenInlineResult::create($this->data['chosen_inline_result']);
-            $this->cacheTypes['chosen_inline_result'] = $cache;
+            if ($this->checkExistUpdate('chosen_inline_result')) {
+                $cache = ChosenInlineResult::create($this->data['chosen_inline_result']);
+                $this->cacheTypes['chosen_inline_result'] = $cache;
+            }
         }
         return $cache;
     }
@@ -246,8 +259,10 @@ class telegram
     {
         $cache = $this->cacheTypes['callback_query'];
         if ($cache == null) {
-            $cache = CallbackQuery::create($this->data['callback_query']);
-            $this->cacheTypes['callback_query'] = $cache;
+            if ($this->checkExistUpdate('callback_query')) {
+                $cache = CallbackQuery::create($this->data['callback_query']);
+                $this->cacheTypes['callback_query'] = $cache;
+            }
         }
         return $cache;
     }
@@ -259,8 +274,10 @@ class telegram
     {
         $cache = $this->cacheTypes['shipping_query'];
         if ($cache == null) {
-            $cache = ShippingQuery::create($this->data['shipping_query']);
-            $this->cacheTypes['shipping_query'] = $cache;
+            if ($this->checkExistUpdate('shipping_query')) {
+                $cache = ShippingQuery::create($this->data['shipping_query']);
+                $this->cacheTypes['shipping_query'] = $cache;
+            }
         }
         return $cache;
     }
@@ -272,8 +289,10 @@ class telegram
     {
         $cache = $this->cacheTypes['pre_checkout_query'];
         if ($cache == null) {
-            $cache = PreCheckoutQuery::create($this->data['pre_checkout_query']);
-            $this->cacheTypes['pre_checkout_query'] = $cache;
+            if ($this->checkExistUpdate('pre_checkout_query')) {
+                $cache = PreCheckoutQuery::create($this->data['pre_checkout_query']);
+                $this->cacheTypes['pre_checkout_query'] = $cache;
+            }
         }
         return $cache;
     }
@@ -285,8 +304,10 @@ class telegram
     {
         $cache = $this->cacheTypes['poll'];
         if ($cache == null) {
-            $cache = Poll::create($this->data['poll']);
-            $this->cacheTypes['poll'] = $cache;
+            if ($this->checkExistUpdate('poll')) {
+                $cache = Poll::create($this->data['poll']);
+                $this->cacheTypes['poll'] = $cache;
+            }
         }
         return $cache;
     }
@@ -298,8 +319,10 @@ class telegram
     {
         $cache = $this->cacheTypes['poll_answer'];
         if ($cache == null) {
-            $cache = PollAnswer::create($this->data['poll_answer']);
-            $this->cacheTypes['poll_answer'] = $cache;
+            if ($this->checkExistUpdate('poll_answer')) {
+                $cache = PollAnswer::create($this->data['poll_answer']);
+                $this->cacheTypes['poll_answer'] = $cache;
+            }
         }
         return $cache;
     }
