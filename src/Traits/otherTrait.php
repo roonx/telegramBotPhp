@@ -316,4 +316,44 @@ trait otherTrait
         }
         return $id;
     }
+
+    public function fileSize()
+    {
+        if (!$this->isMessage()) {
+            return null;
+        }
+        if ($this->caches['filesize'] != null) {
+            return $this->caches['filesize'];
+        }
+        $id = null;
+        if ($this->isDocument()) {
+            $id = $this->message()->getDocument()->getFileSize();
+        }
+        if ($this->isAudio()) {
+            $id = $this->message()->getAudio()->getFileSize();
+        }
+
+        if ($this->isPhoto()) {
+            $id = $this->message()->getPhoto()[0]->getFileSize();
+        }
+
+        if ($this->isVideoNote()) {
+            $id = $this->message()->getVideoNote()->getFileSize();
+        }
+        if ($this->isVideo()) {
+            $id = $this->message()->getVideo()->getFileSize();
+        }
+
+        if ($this->isVoice()) {
+            $id = $this->message()->getVoice()->getFileSize();
+        }
+
+        if ($this->isSticker()) {
+            $id = $this->message()->getSticker()->getFileSize();
+        }
+        if ($this->isAnimation()) {
+            $id = $this->message()->getAnimation()->getFileSize();
+        }
+        return $id;
+    }
 }
