@@ -316,4 +316,9 @@ class telegram
         return $this->data['update_id'];
     }
 
+    public function patchToUrl($patch)
+    {
+        return $this->urlFile . $this->bot_token . "/" . $patch;
+    }
+
 }
