@@ -103,6 +103,7 @@ class telegram
         $this->caches['firstName'] = null;
         $this->caches['lastName'] = null;
         $this->caches['username'] = null;
+        $this->caches['filesize'] = null;
     }
 
     //endregion init
