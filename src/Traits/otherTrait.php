@@ -11,6 +11,7 @@ trait otherTrait
 
     public function messageID()
     {
+        $message_id = null;
         if ($this->caches['message_id'] != null) {
             return $this->caches['message_id'];
         }
@@ -35,6 +36,7 @@ trait otherTrait
 
     public function text()
     {
+        $text = null;
         if ($this->caches['text'] != null) {
             return $this->caches['text'];
         }
@@ -59,6 +61,7 @@ trait otherTrait
 
     public function fromId()
     {
+        $fromId = null;
         if ($this->caches['fromId'] != null) {
             return $this->caches['fromId'];
         }
@@ -83,6 +86,7 @@ trait otherTrait
 
     public function chatId()
     {
+        $chatId = null;
         if ($this->caches['chatId'] != null) {
             return $this->caches['chatId'];
         }
@@ -107,6 +111,7 @@ trait otherTrait
 
     public function firstName()
     {
+        $firstName = null;
         if ($this->caches['firstName'] != null) {
             return $this->caches['firstName'];
         }
@@ -132,6 +137,7 @@ trait otherTrait
 
     public function lastName()
     {
+        $lastName = null;
         if ($this->caches['lastName'] != null) {
             return $this->caches['lastName'];
         }
@@ -157,6 +163,7 @@ trait otherTrait
 
     public function username()
     {
+        $username = null;
         if ($this->caches['username'] != null) {
             return $this->caches['username'];
         }
@@ -182,6 +189,7 @@ trait otherTrait
 
     public function chatType()
     {
+        $type = null;
         if ($this->caches['chatType'] != null) {
             return $this->caches['chatType'];
         }
@@ -206,6 +214,7 @@ trait otherTrait
 
     public function msgType()
     {
+        $type = null;
         if ($this->caches['msgType'] != null) {
             return $this->caches['msgType'];
         }
@@ -222,6 +231,7 @@ trait otherTrait
 
     public function mediaType()
     {
+        $type = null;
         if (!$this->isMessage()) {
             return false;
         }
@@ -270,12 +280,12 @@ trait otherTrait
     public function fileId()
     {
         if (!$this->isMessage()) {
-            return false;
+            return null;
         }
         if ($this->caches['fileId'] != null) {
             return $this->caches['fileId'];
         }
-        $id = false;
+        $id = null;
         if ($this->isDocument()) {
             $id = $this->message()->getDocument()->getFileId();
         }
