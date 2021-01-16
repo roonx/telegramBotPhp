@@ -60,4 +60,9 @@ trait isMedia
     {
         return $this->mediaType() == self::_LOCATION;
     }
+
+    public function isMedia()
+    {
+        return $this->isVideo() or $this->isPhoto() or $this->isAudio() or $this->isVoice() or $this->isAnimation() or $this->isVideoNote() or $this->isContact() or $this->isDocument() or $this->isSticker() or $this->isGame() or $this->isLocation() or $this->isMedia() ;
+    }
 }
