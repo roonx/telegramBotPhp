@@ -15,11 +15,43 @@ use telegramBotApiPhp\Types\{ArrayOfBotCommand,
     returnedStickerSet,
     returnedString,
     returnedUser,
-    returnedUserProfilePhotos
-};
+    returnedUserProfilePhotos,
+    returnedWebhookInfo};
 
 trait method
 {
+
+    /**
+     * @return returnedMessage
+     */
+    public function getUpdates($offset = 0, int $limit = 10, $timeout = null, $allowed_updates = [])
+    {
+        return returnedMessage::create($this->bot('getUpdates', compact('offset', 'limit')));
+    }
+
+    /**
+     * @return returned
+     */
+    public function setWebhook($url, $certificate = null, $ip_address = null, $max_connections = null, $allowed_updates = null, $drop_pending_updates = false)
+    {
+        return returned::create($this->bot('setWebhook', compact('url', 'certificate', 'ip_address', 'max_connections', 'allowed_updates', 'drop_pending_updates')));
+    }
+
+    /**
+     * @return returned
+     */
+    public function deleteWebhook($drop_pending_updates = false)
+    {
+        return returned::create($this->bot('deleteWebhook', compact('drop_pending_updates')));
+    }
+
+    /**
+     * @return returnedWebhookInfo
+     */
+    public function getWebhookInfo()
+    {
+        return returnedWebhookInfo::create($this->bot('getWebhookInfo'));
+    }
 
     /**
      * @return returnedUser
