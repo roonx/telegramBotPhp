@@ -8,24 +8,24 @@
     <p>در لیست زیر می توانید به اطلاعات بیشتری درمورد این بیس دست پیدا کنید :</p>
     
     <ul>
-    <li><a href="/updates/"> آپدیت ها</a>
+    <li><a href="updates/"> آپدیت ها</a>
     </li>
     <li>
-        <a href="/telegramMethod/">متد های تلگرام</a>
+        <a href="telegramMethod/" target="_blank" >متد های تلگرام</a>
     </li>
     <li>
-        <a href="/typeChatMethod/">متد های بررسی type chat</a>
+        <a href="typeChatMethod/" target="_blank">متد های بررسی type chat</a>
     </li>
     
     <li>
-        <a href="/typeMediaMethod/">متد های بررسی نوع پیام ارسالی</a>
+        <a href="typeMediaMethod/" target="_blank">متد های بررسی نوع پیام ارسالی</a>
     </li>
 
     <li>
-        <a href="/otherMethod/">سایر متد ها</a>
+        <a href="otherMethod/" target="_blank">سایر متد ها</a>
     </li>
     <li>
-        <a href="/method/">متد های زنجیره ای</a>
+        <a href="method/" target="_blank">متد های زنجیره ای</a>
     </li>
     </ul>
     </div>
