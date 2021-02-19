@@ -1,0 +1,21 @@
+---
+title: نصب و راه اندازی
+description: یک بیس برای ساخت ربات تلگرام
+---
+<div dir="rtl">
+<p>جهت نصب و راه اندازی بیس ابتدا دستور زیر را در cmd اجرا کنید</p>
+<code dir="ltr">composer require roonx/telegram-bot-api-php</code>
+<p> &#x202B;پس از نصب با استفاده از include بیس رو فراخوانی کنید : &#x202C;</p>
+<code dir="ltr">
+    &#60;?php
+    include 'vendor/autoload.php';
+    ?>
+</code>
+<p>پس از فراخوانی یک شی بسازید و از بیس استفاده کنید</p>
+<code dir="ltr">
+    &#60;?php
+    include 'vendor/autoload.php';
+    $Telegram = new telegramBotApiPhp\telegram('token');
+    ?>
+</code>
+</div>
