@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
 
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-    <title>Telegram Api for php</title>
+    <title>نصب</title>
     <meta name="generator" content="Jekyll v3.9.0" />
     <meta property="og:title" content="Telegram Api for php" />
     <meta property="og:locale" content="en_US" />
@@ -33,6 +33,27 @@
       rel="stylesheet"
       href="/telegramBotPhp/assets/css/style.css?v=2bce9b473094996274906b8499ef31bd67a06085"
     />
+    <style>
+        *{
+            font-family: yekan;
+        }
+      code {
+        display: block;
+        white-space: pre-line;
+        padding: 0.5rem 1rem !important;
+      }
+      .btn-backmenu {
+        background-color: #03A9F4;
+        display: flex;
+        justify-content: center;
+        width: 12rem;
+        margin: 0 auto;
+        font-family: "yekan";
+      }
+      .btn-backmenu:hover{
+        background-color: #03A9F4;
+      }
+    </style>
   </head>
   <body>
     <section class="page-header">
@@ -40,12 +61,14 @@
       <h2 class="project-tagline"></h2>
 
       <a href="https://github.com/roonx/telegramBotPhp" class="btn"
-        >View on GitHub</a
+      target="_blank"  >مشاهده در گیتهاب</a
       >
     </section>
 
     <section class="main-content">
-      <div dir="rtl">
+      <div dir="rtl" style="width: 100%">
+        <a href="../" class="btn btn-backmenu"  >برگشت به صفحه قبل</a>
+
         <p>جهت نصب و راه اندازی بیس ابتدا دستور زیر را در cmd اجرا کنید</p>
         <code dir="ltr">composer require roonx/telegram-bot-api-php</code>
         <p>
@@ -54,9 +77,9 @@
         </p>
         <code dir="ltr"> &#60;?php include 'vendor/autoload.php'; ?> </code>
         <p>پس از فراخوانی یک شی بسازید و از بیس استفاده کنید</p>
-        <code dir="ltr">
-          &#60;?php include 'vendor/autoload.php'; $Telegram = new
-          telegramBotApiPhp\telegram('token'); ?>
+        <code dir="ltr"> &#60;?php include 'vendor/autoload.php';
+           $Telegram = new telegramBotApiPhp\telegram('token'); 
+           ?>
         </code>
       </div>
 
