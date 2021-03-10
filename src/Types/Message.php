@@ -51,6 +51,7 @@ use telegramBotApiPhp\Types\base;
  * @method bool getSupergroupChatCreated()
  * @method bool getChannelChatCreated()
  * @method int getMigrateToChatId()
+ * @method MessageAutoDeleteTimerChanged getMessageAutoDeleteTimerChanged()
  * @method int getMigrateFromChatId()
  * @method Message getPinnedMessage()
  * @method Invoice getInvoice()
@@ -58,6 +59,9 @@ use telegramBotApiPhp\Types\base;
  * @method string getConnectedWebsite()
  * @method PassportData getPassportData()
  * @method ProximityAlertTriggered getProximityAlertTriggered()
+ * @method VoiceChatStarted getVoiceChatStarted()
+ * @method VoiceChatEnded getVoiceChatEnded()
+ * @method VoiceChatParticipantsInvited getVoiceChatParticipantsInvited()
  * @method bool issetDate()
  * @method bool issetText()
  * @method bool issetMessageId()
@@ -101,6 +105,7 @@ use telegramBotApiPhp\Types\base;
  * @method bool issetSupergroupChatCreated()
  * @method bool issetChannelChatCreated()
  * @method bool issetMigrateToChatId()
+ * @method bool issetMessageAutoDeleteTimerChanged()
  * @method bool issetMigrateFromChatId()
  * @method bool issetPinnedMessage()
  * @method bool issetInvoice()
@@ -108,6 +113,9 @@ use telegramBotApiPhp\Types\base;
  * @method bool issetConnectedWebsite()
  * @method bool issetPassportData()
  * @method bool issetProximityAlertTriggered()
+ * @method bool issetVoiceChatStarted()
+ * @method bool issetVoiceChatEnded()
+ * @method bool issetVoiceChatParticipantsInvited()
  */
 class Message extends base
 {
@@ -155,6 +163,7 @@ class Message extends base
         'supergroup_chat_created' => true,
         'channel_chat_created' => true,
         'migrate_to_chat_id' => true,
+        'message_auto_delete_timer_changed' => MessageAutoDeleteTimerChanged::class,
         'migrate_from_chat_id' => true,
         'pinned_message' => Message::class,
         'invoice' => Invoice::class,
@@ -162,6 +171,9 @@ class Message extends base
         'connected_website' => true,
         'passport_data' => PassportData::class,
         'proximity_alert_triggered' => ProximityAlertTriggered::class,
+        'voice_chat_started' => VoiceChatStarted::class,
+        'voice_chat_ended' => VoiceChatEnded::class,
+        'voice_chat_participants_invited' => VoiceChatParticipantsInvited::class,
     ];
 
     protected $MessageId;
@@ -207,6 +219,7 @@ class Message extends base
     protected $SupergroupChatCreated;
     protected $ChannelChatCreated;
     protected $MigrateToChatId;
+    protected $MessageAutoDeleteTimerChanged;
     protected $MigrateFromChatId;
     protected $PinnedMessage;
     protected $Invoice;
@@ -214,6 +227,9 @@ class Message extends base
     protected $ConnectedWebsite;
     protected $PassportData;
     protected $ProximityAlertTriggered;
+    protected $VoiceChatStarted;
+    protected $VoiceChatEnded;
+    protected $VoiceChatParticipantsInvited;
 
     protected function init($key, $value)
     {

@@ -26,6 +26,30 @@ namespace telegramBotApiPhp\Types;
  * @method bool getCanSendOtherMessages()
  * @method bool getCanAddWebPagePreviews()
  * @method int getUntilDate()
+ * @method int getCanManageVoiceChats()
+ * @method int getCanManageChat()
+ * @method bool issetUser()
+ * @method bool issetStatus()
+ * @method bool issetCustomTitle()
+ * @method bool issetIsAnonymous()
+ * @method bool issetCanBeEdited()
+ * @method bool issetCanPostMessages()
+ * @method bool issetCanEditMessages()
+ * @method bool issetCanDeleteMessages()
+ * @method bool issetCanRestrictMembers()
+ * @method bool issetCanPromoteMembers()
+ * @method bool issetCanChangeInfo()
+ * @method bool issetCanInviteUsers()
+ * @method bool issetCanPinMessages()
+ * @method bool issetIsMember()
+ * @method bool issetCanSendMessages()
+ * @method bool issetCanSendMediaMessages()
+ * @method bool issetCanSendPolls()
+ * @method bool issetCanSendOtherMessages()
+ * @method bool issetCanAddWebPagePreviews()
+ * @method bool issetUntilDate()
+ * @method bool issetCanManageVoiceChats()
+ * @method bool issetCanManageChat()
  */
 class ChatMember extends base
 {
@@ -50,6 +74,8 @@ class ChatMember extends base
         'can_send_other_messages' => true,
         'can_add_web_page_previews' => true,
         'until_date' => true,
+        'can_manage_voice_chats' => true,
+        'can_manage_chat' => true,
     ];
     protected $User;
     protected $Status;
@@ -71,6 +97,8 @@ class ChatMember extends base
     protected $CanSendOtherMessages;
     protected $CanAddWebPagePreviews;
     protected $UntilDate;
+    protected $CanManageVoiceChats;
+    protected $CanManageChat;
 
 
     protected function init($key, $value)
