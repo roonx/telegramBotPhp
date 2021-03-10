@@ -4,24 +4,24 @@
 namespace telegramBotApiPhp\Types;
 
 /**
- * Class returnedChatMember
+ * Class ChatInviteLink
  * @package telegramBotApiPhp\Types
  * @method bool getOk()
  * @method int getErrorCode()
  * @method string getDescription()
- * @method ChatMember getResult()
+ * @method ChatInviteLink getResult()
  * @method bool issetOk()
  * @method bool issetErrorCode()
  * @method bool issetDescription()
  * @method bool issetResult()
  */
-class returnedChatMember extends base
+class returnedChatInviteLink extends base
 {
     static protected $map = [
         'ok' => true,
         'error_code' => true,
         'description' => true,
-        'result' => ChatMember::class,
+        'result' => ChatInviteLink::class,
     ];
 
     protected $Ok;

@@ -15,13 +15,13 @@ namespace telegramBotApiPhp\Types;
  * @method bool issetDescription()
  * @method bool issetResult()
  */
-class returnedChatMember extends base
+class returnedArrayOfChatMember extends base
 {
     static protected $map = [
         'ok' => true,
         'error_code' => true,
         'description' => true,
-        'result' => ChatMember::class,
+        'result' => ArrayOfChatMember::class,
     ];
 
     protected $Ok;
