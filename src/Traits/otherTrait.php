@@ -63,19 +63,19 @@ trait otherTrait
         if ($this->caches['fromId'] != null) {
             return $this->caches['fromId'];
         }
-        if ($this->isMessage()) {
+        if ($this->isMessage() and $this->message()->issetFrom()) {
             $fromId = $this->message()->getFrom()->getId();
         }
-        if ($this->isCallbackQuery()) {
+        if ($this->isCallbackQuery() and  $this->callback_query()->getMessage()->issetFrom()) {
             $fromId = $this->callback_query()->getMessage()->getFrom()->getId();
         }
-        if ($this->isChannelPost()) {
+        if ($this->isChannelPost() and $this->channel_post()->issetFrom()) {
             $fromId = $this->channel_post()->getFrom()->getId();
         }
-        if ($this->isEditedMessage()) {
+        if ($this->isEditedMessage() and $this->edited_message()->issetFrom()) {
             $fromId = $this->edited_message()->getFrom()->getId();
         }
-        if ($this->isEditedChannelPost()) {
+        if ($this->isEditedChannelPost() and $this->edited_channel_post()->issetFrom()) {
             $fromId = $this->edited_channel_post()->getFrom()->getId();
         }
         $this->caches['fromId'] = $fromId;
@@ -236,7 +236,10 @@ trait otherTrait
         if ($this->caches['mediaType'] != null) {
             return $this->caches['mediaType'];
         }
-        $type = false;
+        $type = null;
+        if ($this->message() && $this->message()->issetText) {
+            $type = self::_TEXT;
+        }
         if ($this->message()->issetVideo()) {
             $type = self::_VIDEO;
         }
@@ -355,36 +358,29 @@ trait otherTrait
         return $id;
     }
 
-    public function getBigPhoto()
+    public function caption()
     {
-        if ($this->isPhoto()) {
-            if (isset($this->message()->getPhoto()[2])) {
-                return $this->message()->getPhoto()[2]->getFileId();
-            }
-            if (isset($this->message()->getPhoto()[1])) {
-                return $this->message()->getPhoto()[1]->getFileId();
-            }
-            if (isset($this->message()->getPhoto()[0])) {
-                return $this->message()->getPhoto()[0]->getFileId();
-            }
-        }
-        return null;
-    }
 
-
-    public function getSmallPhoto()
-    {
-        if ($this->isPhoto()) {
-            if (isset($this->message()->getPhoto()[0])) {
-                return $this->message()->getPhoto()[0]->getFileId();
-            }
-            if (isset($this->message()->getPhoto()[1])) {
-                return $this->message()->getPhoto()[1]->getFileId();
-            }
-            if (isset($this->message()->getPhoto()[2])) {
-                return $this->message()->getPhoto()[2]->getFileId();
-            }
+        if ($this->caches['caption'] != null) {
+            return $this->caches['caption'];
         }
+
+        if ($this->edited_message() && $this->edited_message()->issetCaption()) {
+            return $this->edited_message()->getCaption();
+        }
+
+        if ($this->edited_channel_post() && $this->edited_channel_post()->issetCaption()) {
+            return $this->edited_channel_post()->getCaption();
+        }
+
+        if ($this->channel_post() && $this->channel_post()->issetCaption()) {
+            return $this->channel_post()->getCaption();
+        }
+
+        if ($this->message() && $this->message()->issetCaption()) {
+            return $this->message()->getCaption();
+        }
+
         return null;
     }
 }
