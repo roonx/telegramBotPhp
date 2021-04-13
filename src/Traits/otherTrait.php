@@ -66,7 +66,7 @@ trait otherTrait
         if ($this->isMessage() and $this->message()->issetFrom()) {
             $fromId = $this->message()->getFrom()->getId();
         }
-        if ($this->isCallbackQuery() and  $this->callback_query()->getMessage()->issetFrom()) {
+        if ($this->isCallbackQuery() and $this->callback_query()->getMessage()->issetFrom()) {
             $fromId = $this->callback_query()->getMessage()->getFrom()->getId();
         }
         if ($this->isChannelPost() and $this->channel_post()->issetFrom()) {
@@ -356,6 +356,39 @@ trait otherTrait
             $id = $this->message()->getAnimation()->getFileSize();
         }
         return $id;
+    }
+
+    public function getBigPhoto()
+    {
+        if ($this->isPhoto()) {
+            if (isset($this->message()->getPhoto()[2])) {
+                return $this->message()->getPhoto()[2]->getFileId();
+            }
+            if (isset($this->message()->getPhoto()[1])) {
+                return $this->message()->getPhoto()[1]->getFileId();
+            }
+            if (isset($this->message()->getPhoto()[0])) {
+                return $this->message()->getPhoto()[0]->getFileId();
+            }
+        }
+        return null;
+    }
+
+
+    public function getSmallPhoto()
+    {
+        if ($this->isPhoto()) {
+            if (isset($this->message()->getPhoto()[0])) {
+                return $this->message()->getPhoto()[0]->getFileId();
+            }
+            if (isset($this->message()->getPhoto()[1])) {
+                return $this->message()->getPhoto()[1]->getFileId();
+            }
+            if (isset($this->message()->getPhoto()[2])) {
+                return $this->message()->getPhoto()[2]->getFileId();
+            }
+        }
+        return null;
     }
 
     public function caption()
