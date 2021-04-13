@@ -7,6 +7,7 @@ namespace telegramBotApiPhp\Traits;
 use telegramBotApiPhp\Types\{ArrayOfBotCommand,
     returned,
     returnedChat,
+    returnedChatInviteLink,
     returnedChatMember,
     returnedFile,
     returnedGameHighScore,
@@ -16,8 +17,7 @@ use telegramBotApiPhp\Types\{ArrayOfBotCommand,
     returnedString,
     returnedUser,
     returnedUserProfilePhotos,
-    returnedWebhookInfo
-};
+    returnedWebhookInfo};
 
 trait method
 {
