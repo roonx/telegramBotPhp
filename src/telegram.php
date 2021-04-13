@@ -2,9 +2,7 @@
 
 namespace telegramBotApiPhp;
 
-use telegramBotApiPhp\Traits\{isChatTypes, isMedia, isUpdates, method, otherTrait};
 use telegramBotApiPhp\Types\{CallbackQuery,
-    ChatMemberUpdated,
     ChosenInlineResult,
     InlineQuery,
     Message,
@@ -13,6 +11,7 @@ use telegramBotApiPhp\Types\{CallbackQuery,
     PreCheckoutQuery,
     ShippingQuery
 };
+use telegramBotApiPhp\Traits\{isChatTypes, isMedia, isUpdates, method, otherTrait};
 
 class telegram
 {
@@ -57,8 +56,6 @@ class telegram
         'pre_checkout_query' => null,
         'poll' => null,
         'poll_answer' => null,
-        'my_chat_member' => null,
-        'chat_member' => null,
     ];
     private $caches = [
         'chatType' => null,
@@ -72,6 +69,7 @@ class telegram
         'firstName' => null,
         'lastName' => null,
         'username' => null,
+        'caption' => null,
     ];
 
     //region init
@@ -95,8 +93,6 @@ class telegram
         $this->cacheTypes['pre_checkout_query'] = null;
         $this->cacheTypes['poll'] = null;
         $this->cacheTypes['poll_answer'] = null;
-        $this->cacheTypes['my_chat_member'] = null;
-        $this->cacheTypes['chat_member'] = null;
         $this->caches['chatType'] = null;
         $this->caches['text'] = null;
         $this->caches['message_id'] = null;
@@ -109,6 +105,7 @@ class telegram
         $this->caches['lastName'] = null;
         $this->caches['username'] = null;
         $this->caches['filesize'] = null;
+        $this->caches['caption'] = null;
     }
 
     //endregion init
@@ -328,35 +325,6 @@ class telegram
             if ($this->checkExistUpdate('poll_answer')) {
                 $cache = PollAnswer::create($this->data['poll_answer']);
                 $this->cacheTypes['poll_answer'] = $cache;
-            }
-        }
-        return $cache;
-    }
-
-    /**
-     * @return ChatMemberUpdated
-     */
-    public function my_chat_member()
-    {
-        $cache = $this->cacheTypes['my_chat_member'];
-        if ($cache == null) {
-            if ($this->checkExistUpdate('my_chat_member')) {
-                $cache = ChatMemberUpdated::create($this->data['my_chat_member']);
-                $this->cacheTypes['my_chat_member'] = $cache;
-            }
-        }
-        return $cache;
-    }
-    /**
-     * @return ChatMemberUpdated
-     */
-    public function chat_member()
-    {
-        $cache = $this->cacheTypes['chat_member'];
-        if ($cache == null) {
-            if ($this->checkExistUpdate('chat_member')) {
-                $cache = ChatMemberUpdated::create($this->data['chat_member']);
-                $this->cacheTypes['chat_member'] = $cache;
             }
         }
         return $cache;
