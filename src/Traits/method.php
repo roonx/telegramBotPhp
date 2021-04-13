@@ -16,7 +16,8 @@ use telegramBotApiPhp\Types\{ArrayOfBotCommand,
     returnedString,
     returnedUser,
     returnedUserProfilePhotos,
-    returnedWebhookInfo};
+    returnedWebhookInfo
+};
 
 trait method
 {
@@ -251,10 +252,11 @@ trait method
      * @return returned
      */
 
-    public function kickChatMember($chat_id, int $user_id, int $until_date = null)
+    public function kickChatMember($chat_id, int $user_id, int $until_date = null,bool $revoke_messages = null)
     {
-        return returned::create($this->bot('kickChatMember', compact('chat_id', 'user_id', 'until_date')));
+        return returned::create($this->bot('kickChatMember', compact('chat_id', 'user_id', 'until_date','revoke_messages')));
     }
+
 
     /**
      * @return returned
@@ -278,11 +280,10 @@ trait method
     /**
      * @return returned
      */
-    public function promoteChatMember($chat_id, int $user_id, bool $is_anonymous = true, bool $can_change_info = null, bool $can_post_messages = null, bool $can_edit_messages = null, bool $can_delete_messages = null, bool $can_invite_users = null, bool $can_restrict_members = null, bool $can_pin_messages = null, bool $can_promote_members = null)
+    public function promoteChatMember($chat_id, int $user_id, bool $is_anonymous = true, bool $can_change_info = null, bool $can_post_messages = null, bool $can_edit_messages = null, bool $can_delete_messages = null, bool $can_invite_users = null, bool $can_restrict_members = null, bool $can_pin_messages = null, bool $can_promote_members = null,bool $can_manage_voice_chats = null,bool $can_manage_chat  = null)
     {
-        return returned::create($this->bot('promoteChatMember', compact('chat_id', 'user_id', 'is_anonymous ', 'can_change_info', 'can_post_messages', 'can_edit_messages', 'can_delete_messages', 'can_invite_users', 'can_restrict_members', 'can_pin_messages', 'can_promote_members')));
+        return returned::create($this->bot('promoteChatMember', compact('chat_id', 'user_id', 'is_anonymous ', 'can_change_info', 'can_post_messages', 'can_edit_messages', 'can_delete_messages', 'can_invite_users', 'can_restrict_members', 'can_pin_messages', 'can_promote_members','can_manage_voice_chats','can_manage_chat')));
     }
-
     /**
      * @return returned
      */
@@ -307,6 +308,30 @@ trait method
     public function exportChatInviteLink($chat_id)
     {
         return returnedString::create($this->bot('exportChatInviteLink', compact('chat_id')));
+    }
+
+    /**
+     * @return returnedChatInviteLink
+     */
+    public function createChatInviteLink($chat_id, int $expire_date = null, int $member_limit = null)
+    {
+        return returnedChatInviteLink::create($this->bot('createChatInviteLink', compact('chat_id', 'expire_date', 'member_limit')));
+    }
+
+    /**
+     * @return returnedChatInviteLink
+     */
+    public function editChatInviteLink($chat_id, string $invite_link, int $expire_date = null, int $member_limit = null)
+    {
+        return returnedChatInviteLink::create($this->bot('editChatInviteLink', compact('chat_id', 'invite_link', 'expire_date', 'member_limit')));
+    }
+
+    /**
+     * @return returnedChatInviteLink
+     */
+    public function revokeChatInviteLink($chat_id, string $invite_link)
+    {
+        return returnedChatInviteLink::create($this->bot('revokeChatInviteLink', compact('chat_id', 'invite_link')));
     }
 
     /**
