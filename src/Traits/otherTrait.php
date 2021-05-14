@@ -67,7 +67,7 @@ trait otherTrait
             $fromId = $this->message()->getFrom()->getId();
         }
         if ($this->isCallbackQuery() and $this->callback_query()->getMessage()->issetFrom()) {
-            $fromId = $this->callback_query()->getMessage()->getFrom()->getId();
+            $fromId = $this->callback_query()->getMessage()->getChat()->getId();
         }
         if ($this->isChannelPost() and $this->channel_post()->issetFrom()) {
             $fromId = $this->channel_post()->getFrom()->getId();
@@ -77,6 +77,9 @@ trait otherTrait
         }
         if ($this->isEditedChannelPost() and $this->edited_channel_post()->issetFrom()) {
             $fromId = $this->edited_channel_post()->getFrom()->getId();
+        }
+        if ($this->isInlineQuery()) {
+            $fromId = $this->inline_query()->getFrom()->getId();
         }
         $this->caches['fromId'] = $fromId;
         return $fromId;
@@ -237,7 +240,7 @@ trait otherTrait
             return $this->caches['mediaType'];
         }
         $type = null;
-        if ($this->message() && $this->message()->issetText) {
+        if ($this->message() && $this->message()->issetText()) {
             $type = self::_TEXT;
         }
         if ($this->message()->issetVideo()) {
