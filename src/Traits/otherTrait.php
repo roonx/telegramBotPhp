@@ -132,6 +132,9 @@ trait otherTrait
         if ($this->isEditedChannelPost()) {
             $firstName = $this->edited_channel_post()->getFrom()->getfirstName();
         }
+        if ($this->isInlineQuery()) {
+            $firstName = $this->inline_query()->getFrom()->getfirstName();
+        }
         $this->caches['firstName'] = $firstName;
         return $firstName;
     }
